@@ -1,0 +1,11 @@
+
+<div class="container"  fxLayout="column"  fxLayoutGap="10px">
+  <mat-list fxFlex>
+    <mat-list-item *ngFor="let cloth of clothes"> <img matListAvatar src={{cloth.image}} alt={{cloth.name}}> <h1
+      matLine>{{cloth.name}}</h1> <p matLine><span>{{cloth.description}}</span> </p>
+    </mat-list-item>
+
+  </mat-list>
+
+</div>
+
