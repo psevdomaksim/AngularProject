@@ -1,3 +1,5 @@
+import {Comment} from './comment';
+
 export class Cloth {
   id!: string;
   name!: string;
@@ -6,4 +8,5 @@ export class Cloth {
   label!: string;
   price!: string;
   description!: string;
+  comments!: Comment[];
 }
