@@ -5,7 +5,8 @@
   fxLayout.xs="column"
   fxLayoutAlign.gt-md="space-around center"
   fxLayoutGap="10px"
-  fxLayoutGap.xs="0"
+  fxLayoutGap.xs="50px"
+  
 ></div>
 
 <div fxFlex="20">
@@ -18,9 +19,10 @@
     <img mat-card-image src={{cloth.image}} alt={{cloth.name}}>
     <mat-card-content>
       <p>{{cloth.description}}</p>
-      <p>{{cloth.price}} руб.</p>
+      <p>{{cloth.price}} руб.</p>
     </mat-card-content>
     <mat-card-actions>
+      <button mat-button (click)="goBack()">BACK</button>
       <button mat-button>LIKE</button>
       <button mat-button>SHARE</button>
     </mat-card-actions>

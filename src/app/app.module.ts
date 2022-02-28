@@ -5,7 +5,7 @@ import {AppComponent} from './app.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MenuComponent} from './menu/menu.component';
+import {HomeComponent} from './home/home.component';
 import {MatListModule} from "@angular/material/list";
 import {ClothDetailComponent} from './cloth-detail/cloth-detail.component';
 import '@angular/common/locales/global/ru';
@@ -22,7 +22,7 @@ import { AccessoriesComponent } from './accessories/accessories.component';
 import { SetsComponent } from './sets/sets.component';
 import { TShirtsComponent } from './t-shirts/t-shirts.component';
 @NgModule({
-  declarations: [AppComponent, MenuComponent, ClothDetailComponent, FooterComponent, HeaderComponent, HoodyComponent, SweatshirtsComponent, PostersComponent, AccessoriesComponent, SetsComponent, TShirtsComponent],
+  declarations: [AppComponent, HomeComponent, ClothDetailComponent, FooterComponent, HeaderComponent, HoodyComponent, SweatshirtsComponent, PostersComponent, AccessoriesComponent, SetsComponent, TShirtsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

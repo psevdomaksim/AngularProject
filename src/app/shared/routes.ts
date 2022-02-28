@@ -5,6 +5,8 @@ import { SweatshirtsComponent } from '../sweatshirts/sweatshirts.component';
 import { PostersComponent } from '../posters/posters.component';
 import { AccessoriesComponent } from '../accessories/accessories.component';
 import { SetsComponent } from '../sets/sets.component';
+import { HomeComponent } from '../home/home.component';
+import { ClothDetailComponent } from '../cloth-detail/cloth-detail.component';
 
 export const routes: Routes = [
   { path: 't-shirts',
@@ -25,7 +27,14 @@ component: AccessoriesComponent
 { path: 'sets',
 component: SetsComponent 
 },
+{ path: 'home',
+component: HomeComponent 
+},
+{ path: 'cloth-detail/:id',
+ component: ClothDetailComponent
+},
+ 
   { path: '',
-   redirectTo: '/menu', 
+   redirectTo: '/home', 
    pathMatch: 'full' },
 ];
