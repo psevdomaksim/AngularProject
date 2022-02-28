@@ -1,0 +1,14 @@
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+    <div fxFlex>
+      <mat-grid-list cols="2" rowHeight="4:2">
+        <mat-grid-tile *ngFor="let cloth of clothes" (click)="onSelect(cloth)">
+          <img class="image"  src={{cloth.image}} alt={{cloth.name}}>
+          <mat-grid-tile-footer>
+            <h1>{{cloth.name | uppercase}}</h1>
+          </mat-grid-tile-footer>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+    <app-cloth-detail [cloth]="selectedCloth"></app-cloth-detail>
+  </div>
+  

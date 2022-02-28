@@ -10,9 +10,9 @@
   </mat-list>
 
   <div fxFlex>
-    <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-list cols="3" rowHeight="3:2">
       <mat-grid-tile *ngFor="let cloth of clothes" (click)="onSelect(cloth)">
-        <img height="350px" src={{cloth.image}} alt={{cloth.name}}>
+        <img class="image"  src={{cloth.image}} alt={{cloth.name}}>
         <mat-grid-tile-footer>
           <h1>{{cloth.name | uppercase}}</h1>
         </mat-grid-tile-footer>

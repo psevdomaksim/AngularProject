@@ -3,23 +3,24 @@ import { Cloth } from '../shared/cloth';
 import {ItemService} from "../services/item.service";
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss'],
+  selector: 'app-t-shirts',
+  templateUrl: './t-shirts.component.html',
+  styleUrls: ['./t-shirts.component.scss']
 })
-export class MenuComponent implements OnInit {
+export class TShirtsComponent implements OnInit {
 
   public clothes!: Cloth[];
 
   public selectedCloth!: Cloth;
 
-  constructor(private ItemService: ItemService) {}
+  constructor(private ItemService: ItemService) { }
 
   ngOnInit(): void {
     this.clothes = this.ItemService.getClothes();
   }
-
   public onSelect(cloth: Cloth): void {
     this.selectedCloth= cloth;
   }
 }
+
+

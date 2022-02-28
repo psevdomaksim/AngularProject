@@ -1,7 +1,22 @@
+$background-moredark: #4527A0;
 .header{
     background-color: black;
 }
 .header-text{
     color:white;
     font-weight: bold;
+    text-align: center;
+}
+.header-h{
+    text-align: center;
+    margin:0px;
+}
+
+.active {
+ background: white;
+ color:black;
+ }
+
+.center {
+  text-align: center;
 }

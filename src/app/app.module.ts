@@ -14,9 +14,15 @@ import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-
+import { ItemService } from "./services/item.service";
+import { HoodyComponent } from './hoody/hoody.component';
+import { SweatshirtsComponent } from './sweatshirts/sweatshirts.component';
+import { PostersComponent } from './posters/posters.component';
+import { AccessoriesComponent } from './accessories/accessories.component';
+import { SetsComponent } from './sets/sets.component';
+import { TShirtsComponent } from './t-shirts/t-shirts.component';
 @NgModule({
-  declarations: [AppComponent, MenuComponent, ClothDetailComponent, FooterComponent, HeaderComponent],
+  declarations: [AppComponent, MenuComponent, ClothDetailComponent, FooterComponent, HeaderComponent, HoodyComponent, SweatshirtsComponent, PostersComponent, AccessoriesComponent, SetsComponent, TShirtsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -28,7 +34,7 @@ import { HeaderComponent } from './header/header.component';
     MatCardModule,
     MatButtonModule
   ],
-  providers: [],
+  providers: [ItemService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,26 +1,29 @@
 <mat-toolbar class="header">
-    <span><img src="/assets/images/logo.jpg" height=70 width=72 alt="HORUS OFFICIAL STORE"></span>
-
-    <mat-list-item><a class="header-text" mat-button>ХУДИ</a></mat-list-item>
-    <mat-list-item><a class="header-text" mat-button>СВИТШОТЫ</a></mat-list-item>
-    <mat-list-item><a class="header-text" mat-button>ПОСТЕРЫ</a></mat-list-item>
-    <mat-list-item><a class="header-text" mat-button>АКСЕССУАРЫ</a></mat-list-item>
-    <mat-list-item><a class="header-text" mat-button>НАБОРЫ</a></mat-list-item>
+  <span
+  ><img
+    class="image"
+    src="/assets/images/logo.jpg"
+    height="70"
+    width="72"
+    alt="1613shop"/></span>
+  <a mat-button routerLink="/t-shirts" routerLinkActive='active' class="header-text"> ФУТБОЛКИ</a>
+  <a mat-button routerLink="/hoody" routerLinkActive='active' class="header-text"> ХУДИ</a>
+  <a mat-button routerLink="/sweatshirts" routerLinkActive='active' class="header-text"> СВИТШОТЫ</a>
+  <a mat-button routerLink="/posters" routerLinkActive='active' class="header-text">ПОСТЕРЫ</a>
+  <a mat-button routerLink="/accessories" routerLinkActive='active' class="header-text"> АКССЕСУАРЫ</a>
+  <a mat-button routerLink="/sets" routerLinkActive='active' class="header-text"> НАБОРЫ</a>
 </mat-toolbar>
 
 <div class="container jumbotron"
      fxLayout="row"
-     fxLayout.sm="column"
-     fxLayout.xs="column"
-     fxLayoutAlign.xs="start center"
-     fxLayoutAlign.sm="start center"
-     fxLayoutAlign.gt-sm="center center"
-     fxLayoutGap="10px">
+     fxLayout.sm="row"
+     fxLayout.xs="row"
+     fxLayoutAlign.xs=" center"
+     fxLayoutAlign.sm="center"
+     fxLayoutAlign.gt-sm="center"
+>
 
-  <div fxFlex fxFlex.gt-sm="50%">
-    <div style="text-align:center"><h1>HORUS OFFICIAL STORE</h1></div>
-  <div fxFlex fxFlex.gt-sm="20%">
-   <!--  <img src="/assets/images/logo.jpg" height=200 width=200 alt="Logo"> -->
+  <div>
+    <h1 class="center">HORUS OFFICIAL STORE</h1>
   </div>
-  <div fxFlex></div>
 </div>
