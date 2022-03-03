@@ -6,39 +6,50 @@
   fxLayoutAlign.gt-md="space-around center"
   fxLayoutGap="10px"
   fxLayoutGap.xs="50px"
-  
 ></div>
 
-<div fxFlex="20">
-  <mat-card *ngIf="cloth">
+<div fxFlex="25">
+  <mat-card>
     <mat-card-header>
       <mat-card-title>
-        <h3>{{cloth.name | uppercase}}</h3>
+        <h3>{{ cloth.name | uppercase }}</h3>
       </mat-card-title>
     </mat-card-header>
-    <img mat-card-image src={{cloth.image}} alt={{cloth.name}}>
+    <img mat-card-image src="{{ cloth.image }}" alt="{{ cloth.name }}" />
     <mat-card-content>
-      <p>{{cloth.description}}</p>
-      <p>{{cloth.price}} руб.</p>
+      <p>{{ cloth.description }}</p>
+      <p>{{ cloth.price }} руб.</p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button (click)="goBack()">BACK</button>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
+          <button mat-button [routerLink]="['/cloth-detail', previousClothId]">
+            <span class="fa fa-angle-double-left fa-3x"></span>
+          </button> 
+          
+          <button mat-button (click)="goBack()">BACK</button>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+
+          <span class="flex-spacer"></span>
+          <button mat-button [routerLink]="['/cloth-detail', nextClothId]">
+            <span class="fa fa-angle-double-right fa-3x"></span>
+          </button >
+     </mat-card-actions>
   </mat-card>
 </div>
 
-<div fxFlex="70">
-  <mat-list *ngIf="cloth">
+<div fxFlex="70" *ngIf="cloth">
+  <mat-list>
     <h3>Отзывы</h3>
     <mat-list-item *ngFor="let comment of cloth.comments">
-      <h4 matLine>"{{comment.comment}}"</h4>
+      <h4 matLine>"{{ comment.comment }}"</h4>
       <p matLine>
         <span>{{ comment.rating }}&#9733;</span>
       </p>
       <p matLine>
-        <span >-- {{ comment.author }}, {{ comment.date | date: 'longDate': '+0300': 'ru'}}</span>
+        <span
+          >-- {{ comment.author }},
+          {{ comment.date | date: "longDate":"+0300":"ru" }}</span
+        >
       </p>
     </mat-list-item>
   </mat-list>

@@ -21,6 +21,7 @@ import { PostersComponent } from './posters/posters.component';
 import { AccessoriesComponent } from './accessories/accessories.component';
 import { SetsComponent } from './sets/sets.component';
 import { TShirtsComponent } from './t-shirts/t-shirts.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 @NgModule({
   declarations: [AppComponent, HomeComponent, ClothDetailComponent, FooterComponent, HeaderComponent, HoodyComponent, SweatshirtsComponent, PostersComponent, AccessoriesComponent, SetsComponent, TShirtsComponent],
   imports: [
@@ -32,7 +33,8 @@ import { TShirtsComponent } from './t-shirts/t-shirts.component';
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressSpinnerModule
   ],
   providers: [ItemService],
   bootstrap: [AppComponent]

@@ -16,7 +16,8 @@ export class TShirtsComponent implements OnInit {
   constructor(private ItemService: ItemService) { }
 
   ngOnInit(): void {
-    this.clothes = this.ItemService.getClothes();
+    this.ItemService.getClothesWithDelay()
+    .subscribe(clothes=>this.clothes=clothes)
   }
   public onSelect(cloth: Cloth): void {
     this.selectedCloth= cloth;
