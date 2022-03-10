@@ -1,0 +1,48 @@
+
+  <div fxFlex fxFlexOffset="5" class="form-size">
+    <h3>Отправьте нам свой отзыв</h3>
+    <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+        <p> 
+            <mat-form-field class="half-width">  
+              <input matInput formControlName="firstname" placeholder="Имя" type="text" required>  
+              <mat-error  *ngIf="feedbackForm.get('firstname')?.hasError('required') && feedbackForm.get('firstname')?.touched">Введите имя</mat-error>
+             </mat-form-field>  
+
+              <mat-form-field   mat-form-field class="half-width">
+                <input matInput formControlName="lastname" placeholder="Фамилия" type="text" required>
+                <mat-error *ngIf="feedbackForm.get('lastname')?.hasError('required') &&  feedbackForm.get('lastname')?.touched">Введите фамилию </mat-error>
+              </mat-form-field>
+        </p>
+         <p>
+             <mat-form-field class="half-width">
+                <input matInput formControlName="telNumber" placeholder="Номер телефона" type="tel">
+                <mat-error *ngIf="feedbackForm.get('telNumber')?.hasError('required') &&  feedbackForm.get('telNumber')?.touched">Введите номер телефона</mat-error>
+             </mat-form-field>  
+             <mat-form-field class="half-width">
+                 <input matInput formControlName="email" placeholder="Электронная почта" type="email">
+                 <mat-error *ngIf="feedbackForm.get('email')?.hasError('required') &&  feedbackForm.get('email')?.touched">Введите электронную почту</mat-error>  
+            </mat-form-field>
+        </p>
+    <table class="form-size">
+         <td>
+           <mat-slide-toggle formControlName="agree">Можем ли мы с Вами связаться?</mat-slide-toggle>
+        </td>
+        <td>
+                <mat-select placeholder="Как?" formControlName="contactType">
+                    <mat-option *ngFor="let type of contactType" [value]="type">
+                        {{type}}
+                    </mat-option>
+                </mat-select>
+        </td>
+    </table>
+         <p>
+            <mat-form-field   mat-form-field class="full-width">
+            <textarea matInput formControlName="message" placeholder="Ваш отзыв" rows="10"></textarea>
+            </mat-form-field>
+        </p>
+
+      <button type="submit" mat-button class="text-floral-white" [disabled]="feedbackForm.invalid">Отправить</button>  
+   </form>
+</div>
+ 
+  

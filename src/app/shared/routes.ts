@@ -7,7 +7,7 @@ import { AccessoriesComponent } from '../accessories/accessories.component';
 import { SetsComponent } from '../sets/sets.component';
 import { HomeComponent } from '../home/home.component';
 import { ClothDetailComponent } from '../cloth-detail/cloth-detail.component';
-
+import { ContactComponent } from '../contact/contact.component';
 export const routes: Routes = [
   { path: 't-shirts',
    component: TShirtsComponent 
@@ -29,6 +29,9 @@ component: SetsComponent
 },
 { path: 'home',
 component: HomeComponent 
+},
+{ path: 'contact',
+component: ContactComponent 
 },
 { path: 'cloth-detail/:id',
  component: ClothDetailComponent

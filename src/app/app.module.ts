@@ -21,9 +21,18 @@ import { PostersComponent } from './posters/posters.component';
 import { AccessoriesComponent } from './accessories/accessories.component';
 import { SetsComponent } from './sets/sets.component';
 import { TShirtsComponent } from './t-shirts/t-shirts.component';
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { LoginComponent } from './login/login.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatSelectModule} from "@angular/material/select";
+import { ContactComponent } from './contact/contact.component';
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ClothDetailComponent, FooterComponent, HeaderComponent, HoodyComponent, SweatshirtsComponent, PostersComponent, AccessoriesComponent, SetsComponent, TShirtsComponent],
+  declarations: [AppComponent, HomeComponent, ClothDetailComponent, FooterComponent, HeaderComponent, HoodyComponent, SweatshirtsComponent, PostersComponent, AccessoriesComponent, SetsComponent, TShirtsComponent, LoginComponent, ContactComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -34,7 +43,15 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     MatGridListModule,
     MatCardModule,
     MatButtonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatCheckboxModule,
+    MatSlideToggleModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   providers: [ItemService],
   bootstrap: [AppComponent]
