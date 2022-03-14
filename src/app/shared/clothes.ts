@@ -29,7 +29,7 @@ export const CLOTHES: Cloth[] = [
         author: 'Леша',
         date: '2021-12-14',
       },
-    ],
+    ]
   },
   
   {

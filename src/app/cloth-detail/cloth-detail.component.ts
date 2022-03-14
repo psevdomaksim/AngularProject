@@ -4,8 +4,9 @@ import { ItemService } from '../services/item.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { ThisReceiver } from '@angular/compiler';
-import { switchMap } from 'rxjs';
-
+import { subscribeOn, switchMap } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Comment } from '../shared/comment';
 @Component({
   selector: 'app-cloth-detail',
   templateUrl: './cloth-detail.component.html',
@@ -16,15 +17,51 @@ export class ClothDetailComponent implements OnInit {
   public clothesIds!: string[];
   public previousClothId!: string;
   public nextClothId!: string;
-
+  public commentForm!: FormGroup;
+  public comment!: Comment;
+  public commentFormErrors: any = {
+     'rating': '',
+     'comment': '',
+     'author': ''  
+    };
   constructor(
     private clothService: ItemService,
     private route: ActivatedRoute,
-    private location: Location
-  ) {}
+    private location: Location,
+    private fb: FormBuilder) {
+      this.createCommentForm();
+    }
+
   ngOnInit(): void {
     this.getClothDetails();
   }
+  private createCommentForm() {
+      this.commentForm = this.fb.group({
+      rating: [0, Validators.min(1)],
+      author: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
+      comment: ['', Validators.required],
+     date: new Date()
+    });
+    this.commentForm.valueChanges
+      .subscribe(data =>
+        this.clothService.onFormValueChanged(
+        this.commentForm,
+        this.commentFormErrors, 
+        this.commentValidationMessages, data));
+  }
+  public onSubmit(): void {
+      this.comment = this.commentForm.value;
+      this.cloth.comments.push(this.comment);
+      this.resetCommentForm();
+  }
+
+  private resetCommentForm(): void { this.commentForm.reset({
+      rating: 0,
+      author: '',
+      comment: '',
+      date: new Date()
+      });
+    }
   private getClothDetails(): void {
     this.clothService
       .getClothesIds()
@@ -52,5 +89,19 @@ export class ClothDetailComponent implements OnInit {
       this.clothesIds[
         (this.clothesIds.length + index + 1) % this.clothesIds.length
       ];
+      this.resetCommentForm();
   }
+  private commentValidationMessages: any = {
+    rating: {
+      min: 'Рейтинг должен быть от 1 до 5',
+    },
+    comment: {
+      required: 'Напишите отзыв',
+    },
+    author: {
+      required: 'Введите свое имя',
+      minlength: 'Имя должно содержать как минимум 2 символа',
+      maxlength: 'Имя не может включать более 25 символов',
+    },
+  };
 }

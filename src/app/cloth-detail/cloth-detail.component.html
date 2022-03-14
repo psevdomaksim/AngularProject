@@ -37,20 +37,57 @@
   </mat-card>
 </div>
 
-<div fxFlex="70" *ngIf="cloth">
-  <mat-list>
-    <h3>Отзывы</h3>
-    <mat-list-item *ngFor="let comment of cloth.comments">
-      <h4 matLine>"{{ comment.comment }}"</h4>
-      <p matLine>
-        <span>{{ comment.rating }}&#9733;</span>
-      </p>
-      <p matLine>
-        <span
-          >-- {{ comment.author }},
-          {{ comment.date | date: "longDate":"+0300":"ru" }}</span
-        >
-      </p>
-    </mat-list-item>
-  </mat-list>
-</div>
+  <div fxFlex="70" *ngIf="cloth">
+    <mat-list>
+      <h3>Отзывы</h3>
+      <mat-list-item *ngFor="let comment of cloth.comments">
+        <h4 matLine>"{{comment.comment}}"</h4>
+        <p matLine>
+          <span>{{comment.rating}}&#9733;</span>
+        </p>
+        <p matLine>
+          <span>-- {{comment.author}}, {{comment.date | date: 'longDate': '+0300': 'ru'}}</span>
+        </p>
+      </mat-list-item>
+    </mat-list>
+  
+    <div fxFlex fxFlexOffset="10" class="form-size">
+      <br>
+      <h4>Оставьте свой отзыв</h4>
+      <form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+  
+        <p>
+          <mat-form-field class="full-width">
+            <input matInput formControlName="author" placeholder="Имя" type="text">
+  
+            <mat-error *ngIf="commentFormErrors.author">
+              {{commentFormErrors.author}}
+            </mat-error>
+  
+          </mat-form-field>
+        </p>
+  
+        <p>
+            <ngx-star-rating style="display: flex;" formControlName="rating"></ngx-star-rating>
+        </p>
+
+  
+        <p>
+          <mat-form-field class="full-width">
+            <textarea matInput formControlName="comment" placeholder="Ваш отзыв" rows="5"></textarea>
+  
+            <mat-error *ngIf="commentFormErrors.comment">
+              {{commentFormErrors.comment}}
+            </mat-error>
+  
+          </mat-form-field>
+        </p>
+  
+        <button type="submit" mat-button class="background-primary text-floral-white"
+                [disabled]="commentForm.invalid">Отправить
+        </button>
+  
+      </form>
+    </div>
+  
+  </div>

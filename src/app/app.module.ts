@@ -31,6 +31,8 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatSelectModule} from "@angular/material/select";
 import { ContactComponent } from './contact/contact.component';
+import {MatSliderModule} from "@angular/material/slider";
+import {NgxStarRatingModule} from "ngx-star-rating";
 @NgModule({
   declarations: [AppComponent, HomeComponent, ClothDetailComponent, FooterComponent, HeaderComponent, HoodyComponent, SweatshirtsComponent, PostersComponent, AccessoriesComponent, SetsComponent, TShirtsComponent, LoginComponent, ContactComponent],
   imports: [
@@ -51,7 +53,9 @@ import { ContactComponent } from './contact/contact.component';
     MatCheckboxModule,
     MatSlideToggleModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSliderModule,
+    NgxStarRatingModule
   ],
   providers: [ItemService],
   bootstrap: [AppComponent]
