@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 @Component({
@@ -7,7 +7,11 @@ import { LoginComponent } from '../login/login.component';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private dialog: MatDialog) {}
+
+  constructor(
+    @Inject('BaseURL') public BaseURL: string,
+    private dialog: MatDialog) 
+  {}
   public openLoginForm(): void {this.dialog.open(LoginComponent, {      
       width: '500px',
       height: '350px'   

@@ -5,7 +5,7 @@
         *ngFor="let cloth of clothes"
         [routerLink]="['/cloth-detail', cloth.id]"
       >
-        <img class="image" src="{{ cloth.image }}" alt="{{ cloth.name }}" />
+        <img class="image" src="{{BaseURL + cloth.image}}" alt="{{ cloth.name }}" />
         <mat-grid-tile-footer>
           <h1>{{ cloth.name | uppercase }}</h1>
         </mat-grid-tile-footer>

@@ -1,32 +1,38 @@
 import { Injectable } from '@angular/core';
 import { Cloth } from '../shared/cloth';
 import { CLOTHES } from '../shared/clothes';
-import { delay, Observable, of } from 'rxjs';
+import {delay, map, Observable, of} from "rxjs";
 import {FormGroup} from "@angular/forms";
+import {HttpClient} from "@angular/common/http";
+import {baseURL} from "../shared/baseurl";
 
 @Injectable({
   providedIn: 'root',
 })
 export class ItemService {
-  constructor() {}
+  public clothesLink: string = "clothes";
+  public feedbackLink: string = "feedback";
+
+  constructor(private http: HttpClient) {}
   public getClothes(): Observable<Cloth[]> {
-    return of(CLOTHES);
+    return this.http.get<Cloth[]>(baseURL + this.clothesLink);
   }
   public getCloth(id: string): Observable<Cloth> {
-    return of(CLOTHES.filter((cloth) => cloth.id === id)[0]);
-  }
+      return this.http.get<Cloth>(baseURL + this.clothesLink + "/" + id);
+    }
 
-  public getFeaturedClothes(): Observable<Cloth[]> {
-    return of(CLOTHES.filter((cloth) => cloth.featured));
-  }
+  public getClothesIds(): Observable<string[]> {
+        return this.getClothes().pipe(map(clothes => clothes.map(cloth => cloth.id )));
+      }
+
+  public getFeaturedPizzas(): Observable<Cloth[]> {
+      return this.http.get<Cloth[]>(baseURL + this.clothesLink + "?featured=true");
+    }
+
   public getClothesWithDelay(): Observable<Cloth[]> {
-    return of(CLOTHES)
-    .pipe(
-      delay(1000)
-    );
-  }
-  public getClothesIds():Observable<string[]>{
-    return of(CLOTHES.map(cloth=>cloth.id))
+    return this.http.get<Cloth[]>
+    (baseURL + this.clothesLink)
+    .pipe(delay(1000));
   }
   public onFormValueChanged(formGroup: FormGroup, formErrors: any, validationMessages: any, data?: any) {
     if (!formGroup) {

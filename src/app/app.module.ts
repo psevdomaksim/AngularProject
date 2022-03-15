@@ -33,6 +33,9 @@ import {MatSelectModule} from "@angular/material/select";
 import { ContactComponent } from './contact/contact.component';
 import {MatSliderModule} from "@angular/material/slider";
 import {NgxStarRatingModule} from "ngx-star-rating";
+import {HttpClientModule} from "@angular/common/http";
+import {baseURL} from "./shared/baseurl";
+import {HttpService} from "./services/http.service";
 @NgModule({
   declarations: [AppComponent, HomeComponent, ClothDetailComponent, FooterComponent, HeaderComponent, HoodyComponent, SweatshirtsComponent, PostersComponent, AccessoriesComponent, SetsComponent, TShirtsComponent, LoginComponent, ContactComponent],
   imports: [
@@ -55,9 +58,17 @@ import {NgxStarRatingModule} from "ngx-star-rating";
     MatSelectModule,
     ReactiveFormsModule,
     MatSliderModule,
-    NgxStarRatingModule
+    NgxStarRatingModule,
+    HttpClientModule
   ],
-  providers: [ItemService],
+  providers: [
+    ItemService,
+    {
+      provide: 'BaseURL',
+      useValue: baseURL
+    },
+    HttpService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

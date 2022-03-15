@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Cloth } from '../shared/cloth';
 import {ItemService} from "../services/item.service";
 
@@ -13,7 +13,9 @@ export class TShirtsComponent implements OnInit {
 
   public selectedCloth!: Cloth;
 
-  constructor(private ItemService: ItemService) { }
+  constructor(@Inject('BaseURL') public BaseURL: string,
+
+    private ItemService: ItemService) { }
 
   ngOnInit(): void {
     this.ItemService.getClothesWithDelay()

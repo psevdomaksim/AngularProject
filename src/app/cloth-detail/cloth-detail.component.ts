@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component,Inject, Input, OnInit } from '@angular/core';
 import { Cloth } from '../shared/cloth';
 import { ItemService } from '../services/item.service';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -7,6 +7,7 @@ import { ThisReceiver } from '@angular/compiler';
 import { subscribeOn, switchMap } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Comment } from '../shared/comment';
+import { HttpService } from '../services/http.service';
 @Component({
   selector: 'app-cloth-detail',
   templateUrl: './cloth-detail.component.html',
@@ -24,11 +25,13 @@ export class ClothDetailComponent implements OnInit {
      'comment': '',
      'author': ''  
     };
-  constructor(
+  constructor(@Inject('BaseURL') public BaseURL: string,
     private clothService: ItemService,
     private route: ActivatedRoute,
     private location: Location,
-    private fb: FormBuilder) {
+    private fb: FormBuilder,
+    private httpService: HttpService
+    ) {
       this.createCommentForm();
     }
 
@@ -52,6 +55,7 @@ export class ClothDetailComponent implements OnInit {
   public onSubmit(): void {
       this.comment = this.commentForm.value;
       this.cloth.comments.push(this.comment);
+      this.httpService.update(this.cloth, this.clothService.clothesLink + "/" + this.cloth.id);
       this.resetCommentForm();
   }
 

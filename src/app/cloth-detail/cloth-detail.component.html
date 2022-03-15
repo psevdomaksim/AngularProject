@@ -15,7 +15,7 @@
         <h3>{{ cloth.name | uppercase }}</h3>
       </mat-card-title>
     </mat-card-header>
-    <img mat-card-image src="{{ cloth.image }}" alt="{{ cloth.name }}" />
+    <img mat-card-image src="{{BaseURL + cloth.image}}" alt="{{ cloth.name }}" />
     <mat-card-content>
       <p>{{ cloth.description }}</p>
       <p>{{ cloth.price }} руб.</p>

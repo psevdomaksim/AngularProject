@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { HttpService } from '../services/http.service';
 import {ContactType, Feedback} from "../shared/feedback";
+import { ItemService } from '../services/item.service';
 
 @Component({
   selector: 'app-contact',
@@ -12,10 +14,15 @@ export class ContactComponent implements OnInit {
   public contactType = ContactType;
   private feedback!: Feedback;
 
-  constructor(private fb: FormBuilder) { this.createForm();  }
+  constructor(
+    private fb: FormBuilder,
+    private clothService: ItemService,
+    private httpService: HttpService
+    ) { this.createForm();  }
 
   public onSubmit() {
       this.feedback = this.feedbackForm.value; 
+      this.httpService.save(this.feedback, this.clothService.feedbackLink);
       this.feedbackForm.reset({
         firstname: '',
         lastname: '',
