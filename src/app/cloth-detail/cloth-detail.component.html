@@ -8,7 +8,7 @@
   fxLayoutGap.xs="50px"
 ></div>
 
-<div fxFlex="25">
+<div fxFlex="35">
   <mat-card>
     <mat-card-header>
       <mat-card-title>
@@ -25,9 +25,8 @@
             <span class="fa fa-angle-double-left fa-3x"></span>
           </button> 
           
-          <button mat-button (click)="goBack()">BACK</button>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
+          <button mat-button routerLink='/home'><b>HOME</b></button>
+          <button mat-button (click)="addToOrder()"><b>ДОБАВИТЬ В КОРЗИНУ</b></button>
 
           <span class="flex-spacer"></span>
           <button mat-button [routerLink]="['/cloth-detail', nextClothId]">

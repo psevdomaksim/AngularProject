@@ -26,10 +26,15 @@
           "comment": "comment-3",
           "author": "Леша",
           "date": "2021-12-14"
+        },
+        {
+          "rating": 5,
+          "author": "хуесос",
+          "comment": "хорус заебал",
+          "date": "2022-03-16T21:39:34.868Z"
         }
       ]
     },
-
     {
       "id": "1",
       "name": "ClothName-2",

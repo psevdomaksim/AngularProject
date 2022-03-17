@@ -1,0 +1,35 @@
+.table {
+    width: 100%;
+  }
+  
+  .mat-column-cloth {
+    flex: none;
+    width: 150px;
+  }
+  
+  .mat-column-price {
+    flex: none;
+    text-align: center;
+    width: 150px;
+  }
+  
+  .mat-column-count {
+    flex: none;
+    text-align: center;
+    width: 200px;
+  }
+  
+  .mat-column-sum {
+    flex: none;
+    text-align: center;
+    width: 100px;
+  }
+  
+  .mat-column-delete {
+    flex: none;
+    width: 50px;
+  }
+  .toolbar-style{
+    background-color: black;
+    color: white;
+  }

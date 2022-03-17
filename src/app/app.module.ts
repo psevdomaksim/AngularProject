@@ -36,8 +36,14 @@ import {NgxStarRatingModule} from "ngx-star-rating";
 import {HttpClientModule} from "@angular/common/http";
 import {baseURL} from "./shared/baseurl";
 import {HttpService} from "./services/http.service";
+import { PopupComponent } from './popup/popup.component';
+import { OrderComponent } from './order/order.component';
+import {MatTableModule} from "@angular/material/table";
+import {MatIconModule} from "@angular/material/icon";
+import {MatBadgeModule} from "@angular/material/badge";
+
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ClothDetailComponent, FooterComponent, HeaderComponent, HoodyComponent, SweatshirtsComponent, PostersComponent, AccessoriesComponent, SetsComponent, TShirtsComponent, LoginComponent, ContactComponent],
+  declarations: [AppComponent, HomeComponent, ClothDetailComponent, FooterComponent, HeaderComponent, HoodyComponent, SweatshirtsComponent, PostersComponent, AccessoriesComponent, SetsComponent, TShirtsComponent, LoginComponent, ContactComponent, PopupComponent, OrderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -59,7 +65,10 @@ import {HttpService} from "./services/http.service";
     ReactiveFormsModule,
     MatSliderModule,
     NgxStarRatingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatIconModule,
+    MatBadgeModule
   ],
   providers: [
     ItemService,

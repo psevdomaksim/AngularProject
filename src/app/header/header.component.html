@@ -13,7 +13,16 @@
   <a mat-button routerLink="/accessories" routerLinkActive='active' class="header-text"> АКССЕСУАРЫ</a>
   <a mat-button routerLink="/sets" routerLinkActive='active' class="header-text"> НАБОРЫ</a>
   <span class="flex-spacer"></span>
+
+
   <a mat-button routerLink="/contact" routerLinkActive='active' class="header-text"> Контакты</a>
+
+  <a mat-button class="header-text" (click)="openOrderForm()">Корзина
+    <mat-icon matBadge={{clothService.orderedClothes.length}} 
+              matBadgeColor="warn">shopping_cart
+    </mat-icon>
+  </a>
+
   <a mat-button class="login" (click)="openLoginForm()"><span class="fa fa-sign-in fa-lg"></span> Войти</a>
 </mat-toolbar>
 

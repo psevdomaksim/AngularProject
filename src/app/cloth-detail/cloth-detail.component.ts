@@ -55,8 +55,15 @@ export class ClothDetailComponent implements OnInit {
   public onSubmit(): void {
       this.comment = this.commentForm.value;
       this.cloth.comments.push(this.comment);
-      this.httpService.update(this.cloth, this.clothService.clothesLink + "/" + this.cloth.id);
+      this.httpService.update(this.cloth, this.clothService.clothesLink + "/" + this.cloth.id);
       this.resetCommentForm();
+  }
+  public addToOrder(): void {
+      this.openOrderPopup();
+      this.clothService.orderedClothes.push(this.cloth);
+    }
+      public openOrderPopup(): void {
+      this.clothService.openMessagePopup("Вы отложили "+this.cloth.name+ " в свою корзину ");
   }
 
   private resetCommentForm(): void { this.commentForm.reset({
@@ -76,14 +83,14 @@ export class ClothDetailComponent implements OnInit {
       )
       .subscribe((cloth) => {
         this.cloth = cloth;
-        this.setPreviousAndNextPizza(cloth.id);
+        this.setPreviousAndNextCloth(cloth.id);
       });
   }
 
   public goBack(): void {
     this.location.back();
   }
-  private setPreviousAndNextPizza(clothId: string): void {
+  private setPreviousAndNextCloth(clothId: string): void {
     const index: number = this.clothesIds?.indexOf(clothId);
     this.previousClothId =
       this.clothesIds[
